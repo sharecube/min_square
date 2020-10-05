@@ -22,13 +22,11 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   int result = 0;
 
   TextEditingController _controller = TextEditingController();
@@ -40,29 +38,51 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(left: 64.0, right: 64.0),
+            padding: const EdgeInsets.only(
+              left: 64.0,
+              right: 64.0,
+            ),
             child: TextField(
               controller: _controller,
               keyboardType: TextInputType.number,
               inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                FilteringTextInputFormatter.allow(
+                  RegExp(
+                    r'[0-9]',
+                  ),
+                ),
               ],
               decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.teal)),
-                  labelText: "Type number and press 'Determine'",
-                  suffixStyle: const TextStyle(color: Colors.green)),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.teal,
+                  ),
+                ),
+                labelText: "Type number and press 'Determine'",
+                suffixStyle: const TextStyle(
+                  color: Colors.green,
+                ),
+              ),
             ),
           ),
           SizedBox(
             height: 32.0,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 64.0, right: 64.0),
+            padding: const EdgeInsets.only(
+              left: 64.0,
+              right: 64.0,
+            ),
             child: OutlineButton(
-              child: Text('Determine'),
+              child: Text(
+                'Determine',
+              ),
               onPressed: () {
-                getMinSquares(int.parse(this._controller.value.text));
+                getMinSquares(
+                  int.parse(
+                    this._controller.value.text,
+                  ),
+                );
               },
             ),
           ),
@@ -94,5 +114,4 @@ class _MyHomePageState extends State<MyHomePage> {
     });
     return this.result;
   }
-
 }
